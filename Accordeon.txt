@@ -1,0 +1,63 @@
+//HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div class="clast">1</div>
+  <p class='clastp clastp-active'>dfsdhdhdfh</p>
+<div class="clast">2</div>
+   <p class='clastp'>dfsdhdhdfh</p>
+<div class="clast">3</div>
+   <p class='clastp'>dfsdhdhdfh</p>
+<div class="clast">4</div>
+   <p class='clastp'>dfsdhdhdfh</p>
+<div class="clast">5</div>
+   <p class='clastp'>dfsdhdhdfh</p>
+</body>
+</html>
+
+//CSS
+.clast{
+  width:200px;
+  height:50px;
+  border:1px solid green;
+}
+
+.clastp{
+  width:200px;
+  height:50px;
+  border:1px solid blue;
+  display:none;
+}
+
+
+.clastp.clastp-active{
+  display:block;
+}
+
+//JS
+
+let allElement = document.querySelectorAll('.clast');
+let allElementP = document.querySelectorAll('.clastp');
+
+function func(event){
+  for (i=0; i<allElementP.length; i++){
+    allElementP[i].classList.remove('clastp-active');
+  }
+  return event.target.nextElementSibling.classList.add('clastp-active');
+}
+
+
+
+for (i=0; i<allElement.length; i++){
+  allElement[i].addEventListener(
+  'click',
+    func
+  )
+}
+
